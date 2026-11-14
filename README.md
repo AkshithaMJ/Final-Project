@@ -3,9 +3,9 @@
 This project focuses on end-to-end Data Cleaning, Pre-processing, and Feature Engineering on the Snitch Fashion Sales Dataset using Python (Pandas & NumPy). 
 The goal is to transform raw, inconsistent retail sales data into a clean, structured, and analysis-ready dataset suitable for Exploratory Data Analysis (EDA) and business intelligence reporting.
 ### 📂 Dataset SummaryRaw Dataset: 
-Snitch_Fashion_Sales_Uncleaned.csv (2,500 rows, 12 columns)
+Snitch_Fashion_Sales_Uncleaned.csv (2,501 rows, 12 columns)
 ### Cleaned Dataset: 
-Snitch_Fashion_Sales_Final_Cleaned.csv (2,500 rows, 19 columns)
+Snitch_Fashion_Sales_Final_Cleaned.csv (2,501 rows, 19 columns)
 ### Domain: 
 E-Commerce & Fashion Retail
 ## 🛠️ Key Data Cleaning & Pre-processing Steps 
