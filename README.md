@@ -1,12 +1,12 @@
-### 🛍️ Snitch Fashion Sales — Data Cleaning 
+# 🛍️ Snitch Fashion Sales — Data Cleaning 
 ## 📌 Project Overview
 This project focuses on end-to-end Data Cleaning, Pre-processing, and Feature Engineering on the Snitch Fashion Sales Dataset using Python (Pandas & NumPy). 
 The goal is to transform raw, inconsistent retail sales data into a clean, structured, and analysis-ready dataset suitable for Exploratory Data Analysis (EDA) and business intelligence reporting.
-# 📂 Dataset SummaryRaw Dataset: 
+### 📂 Dataset SummaryRaw Dataset: 
 Snitch_Fashion_Sales_Uncleaned.csv (2,500 rows, 12 columns)
-# Cleaned Dataset: 
+### Cleaned Dataset: 
 Snitch_Fashion_Sales_Final_Cleaned.csv (2,500 rows, 19 columns)
-# Domain: 
+### Domain: 
 E-Commerce & Fashion Retail
 ## 🛠️ Key Data Cleaning & Pre-processing Steps 
 Duplicate Removal:Verified and removed any duplicate records to ensure data integrity.
@@ -18,7 +18,7 @@ Correcting Discount Anomalies (Discount_%):Fixed invalid discount entries exceed
 Standardizing Mixed Date Formats (Order_Date):Parsed inconsistent date formats (YYYY-MM-DD, DD-MM-YYYY, YYYY/MM/DD) into a unified YYYY-MM-DD standard.
 Labeled missing dates as "Unknown" to avoid data loss while extracting Order_Month and Order_Year for time-series analysis.
 Handling Missing Customer Segments (Segment):Replaced missing values in Segment with "Unknown" to preserve row-level sales data without introducing bias.
-# ⚙️ Feature Engineering 
+## ⚙️ Feature Engineering 
 (Derived Columns)To enable deeper business insights, 7 new analytical columns were engineered:Units_Sold_Status: Classifies orders as Delivered or Returned.
 Order_Month & Order_Year: Extracted from standardized order dates for seasonality and trend analysis.
 Profit_Status: Categorizes transactions into Profitable, Loss, or Break-even.
