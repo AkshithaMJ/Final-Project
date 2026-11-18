@@ -1,28 +1,72 @@
-# 🛍️ Snitch Fashion Sales — Data Cleaning 
-## 📌 Project Overview
-This project focuses on end-to-end Data Cleaning, Pre-processing, and Feature Engineering on the Snitch Fashion Sales Dataset using Python (Pandas & NumPy). 
-The goal is to transform raw, inconsistent retail sales data into a clean, structured, and analysis-ready dataset suitable for Exploratory Data Analysis (EDA) and business intelligence reporting.
-### 📂 Dataset SummaryRaw Dataset: 
-Snitch_Fashion_Sales_Uncleaned.csv (2,501 rows, 12 columns)
-### Cleaned Dataset: 
-Snitch_Fashion_Sales_Final_Cleaned.csv (2,501 rows, 19 columns)
-### Domain: 
-E-Commerce & Fashion Retail
-## 🛠️ Key Data Cleaning & Pre-processing Steps 
-Duplicate Removal:Verified and removed any duplicate records to ensure data integrity.
-Standardizing Categorical Text (City):Fixed inconsistent spelling and casing variations (e.g., mapped bengaluru - Bangalore, and Hyd / hyderbad - Hyderabad).
-Handling Returns & Missing Quantities (Units_Sold):Imputed missing Units_Sold values with 0.
-Identified negative Units_Sold values as product returns rather than data errors, flagging them under a new Units_Sold_Status column (Returned vs. Delivered).
-Category-Based Price Imputation (Unit_Price):Imputed missing Unit_Price values using the median price per Product_Category to prevent skewness from high-ticket items.
-Correcting Discount Anomalies (Discount_%):Fixed invalid discount entries exceeding 100% (up to 130%) and filled missing discount entries using the dataset median (0.65).
-Standardizing Mixed Date Formats (Order_Date):Parsed inconsistent date formats (YYYY-MM-DD, DD-MM-YYYY, YYYY/MM/DD) into a unified YYYY-MM-DD standard.
-Labeled missing dates as "Unknown" to avoid data loss while extracting Order_Month and Order_Year for time-series analysis.
-Handling Missing Customer Segments (Segment):Replaced missing values in Segment with "Unknown" to preserve row-level sales data without introducing bias.
-## ⚙️ Feature Engineering 
-(Derived Columns)To enable deeper business insights, 7 new analytical columns were engineered:Units_Sold_Status: Classifies orders as Delivered or Returned.
-Order_Month & Order_Year: Extracted from standardized order dates for seasonality and trend analysis.
-Profit_Status: Categorizes transactions into Profitable, Loss, or Break-even.
-Discount_Level: Segments orders into High Discount (>50%) and Normal Discount (<=50%).
-Order_Size: Distinguishes between Single / Return / Zero orders and Bulk Order (1+ Units).
-## 💻 Tech StackLanguage:
-Python 3Libraries: Pandas, NumPyEnvironment: Google Colab / Jupyter Notebook
+# Snitch Fashion Sales Analytics
+### End-to-End Data Analysis and Preprocessing Using Python
+
+---
+
+## Project Overview
+
+This project focuses on analyzing and preprocessing a comprehensive sales dataset for **Snitch Fashion** using Python. The objective is to ensure data quality through systematic data cleaning, missing value imputation, outlier handling using the IQR method, feature engineering, and exploratory data analysis (EDA) supported by visual insights.
+
+The cleaned dataset and visualizations provide a reliable foundation for understanding sales performance, product category trends, and profitability.
+
+## Dataset Information
+
+The dataset includes order details, product categories, sales amounts, units sold, unit prices, discounts, and customer information.
+
+| Dataset Details | Information |
+|---|---:|
+| Target Domain | Fashion & E-commerce Sales |
+| Key Operations | Data Cleaning, Imputation, Outlier Capping, Feature Engineering |
+| Final Output | Cleaned CSV Dataset & Visualizations |
+
+**Original Dataset:** `Snitch_Fashion_Sales_Uncleaned.csv`
+
+## Tools and Technologies
+
+- **Python** – Core programming language used for data analysis.
+- **Jupyter Notebook** – Interactive environment used to execute and document the workflow.
+- **Pandas & NumPy** – Used for data manipulation, imputation, and numerical calculations.
+- **Matplotlib & Seaborn** – Used for generating exploratory data visualizations and plots.
+
+## Data Pre-processing & Workflow
+
+The analysis and preparation pipeline was structured into the following sequential steps:
+
+### 1. Data Loading and Initial Inspection
+- Imported the dataset using Pandas.
+- Inspected dataset shape, column names, data types, and initial records using `head()`, `info()`, and `describe()`.
+
+### 2. Missing Value Imputation & Cleaning
+- Standardized column names and text formats.
+- Handled missing values in `Units_Sold` and `Unit_Price` using median imputation.
+- Replaced missing or zero values in `Units_Sold` with `1` to maintain realistic order quantities.
+- Forward-filled (`ffill`) missing date entries in `Order_Date` to preserve chronological integrity.
+
+### 3. Feature Engineering
+Created derived categorical flags to assist in deeper business EDA and visualizations:
+- `Profit_Status`: Categorized orders into `Profitable`, `Loss`, or `Break-even`.
+- `Discount_Level`: Grouped discounts into `High Discount (>50%)` and `Normal Discount (<=50%)`.
+- `Order_Size`: Classified orders into `Bulk Order`, `Single Order`, and `Return / Zero` using conditional logic.
+
+### 4. Outlier Detection and Capping (IQR Method)
+- Applied the Interquartile Range (IQR) method across numerical columns ('all numerical cells'.).
+- Capped extreme anomalies using Winsorization (`.clip()`) to retain data distribution without losing valuable records.
+
+### 5. Exploratory Data Analysis (EDA) & Visualizations
+- Generated univariate, bivariate, and multivariate plots using Matplotlib and Seaborn.
+- Created visualizations including count plots, bar charts, and distribution summaries to evaluate category sales and profit trends.
+
+### 6. Exporting the Cleaned Dataset
+Exported the final processed dataset into a separate CSV file for downstream reporting:
+
+`Snitch Fashion Sales Cleaned.csv`
+
+## Project Structure
+
+```text
+Snitch-Fashion-Sales-Analytics/
+│
+├── README.md
+├── Snitch Fashion Sales Cleaned.ipynb
+├── Snitch Fashion Sales Cleaned.csv
+└── Snitch_Fashion_Sales_Uncleaned.csv
