@@ -92,14 +92,6 @@ Exported the final processed dataset into a separate CSV file for downstream rep
 
 ---
 
-## Recommendations
-
-- **Review Heavy Discounts:** Monitor `High Discount (>50%)` offers on lower-margin categories so steep discounts do not reduce net profit.
-- **Address Return / Zero Orders:** Investigate the `283` `Return / Zero` entries to improve product quality, sizing clarity, and order retention.
-- **Focus on High-Performing Categories & Peaks:** Prioritize stock and promotions for leading categories (**Dresses**, **Jeans**, **T-Shirts**) during higher-demand months.
-
----
-
 ## Project Structure
 
 ```text
