@@ -92,6 +92,48 @@ Exported the final processed dataset into a separate CSV file for downstream rep
 
 ---
 
+---
+
+## 📌 Project Summary
+
+This project presents an end-to-end data cleaning, feature engineering, and exploratory data analysis (EDA) workflow on **2,500 retail transactions** across **12 core dimensions** for **Snitch Fashion**. After resolving missing values, standardizing city names and dates, engineering business features (`Profit_Status`, `Discount_Level`, `Order_Size`), and capping outliers using the IQR method, the dataset was analyzed both statistically (GroupBy, Pivot Table, Correlation Matrix) and visually using **10 situation-based charts** .
+
+---
+
+## 🔍 Key Insights
+
+- **Category Leaders:** **Dresses** generates the highest total sales revenue and net profit, followed closely by **Accessories**, **T-Shirts**, and **Jeans**, while **Shoes** trails in cumulative sales.
+- **Volume vs. Price Impact:** Order quantity (`Units_Sold`) shows a strong positive correlation with `Sales_Amount` (`r = 0.86`), whereas `Unit_Price` shows a moderate positive relationship (`r = 0.22`).
+- **Order Size & Returns:** **Single Orders** account for the largest share of transactions (`63.1%`), **Bulk Orders** make up `25.6%`, and **Return / Zero** entries account for `11.3%` (`283` out of `2,500` orders).
+- **Heavy Discounting & Margin Trade-offs:** A large share of transactions fall under `High Discount (>50%)`, and boxplot/correlation findings show that higher sales amounts do not automatically guarantee higher profit when discounts or return adjustments occur.
+- **Multi-City & Segment Reach:** Sales are distributed across major hubs (**Mumbai, Ahmedabad, Hyderabad, Delhi, Bangalore, Pune**) spanning **B2B**, **B2C**, and **Unknown** segments.
+
+---
+
+## 💡 Recommendations
+
+- **Audit Deep Discounting (`>50%`):** Review promotional markdowns on lower-margin items and categories so steep discounts do not erode net profitability.
+- **Reduce Return / Zero Transactions:** Investigate the `11.3%` (`283` records) return/zero volume—especially by category and order size—to improve sizing accuracy, product descriptions, and net revenue retention.
+- **Prioritize Top Categories & Peak Months:** Align inventory stocking, bundle offers, and marketing campaigns with high-performing categories (**Dresses**, **Accessories**, **T-Shirts**, **Jeans**) and high-demand months.
+- **Improve Segment & Data Capture:** Reduce `'Unknown'` entries in `Segment` and standardize data entry formats at the source to make future customer-level reporting more accurate.
+
+---
+
+## ✅ Conclusion
+
+The exploratory analysis of **Snitch Fashion** demonstrates that while order volume and top categories like **Dresses** drive strong revenue and multi-city reach, profitability is shaped by promotional discounting, return behavior, and order composition. Combining clean data preparation with structured statistical summaries and targeted visualizations provides a clear basis for pricing, inventory, and retention decisions.
+
+---
+
+## ⚠️ Limitations and Considerations
+
+- **Imputation & Capping Effects:** Missing values (`Unit_Price`, `Discount_%`, `Order_Date`, `Segment`) and extreme outliers capped via IQR improve analytical consistency, but imputed/capped values reflect statistical approximations rather than raw source records.
+- **Zero Variance in Capped `Discount_%`:** After outlier capping/imputation concentrated `Discount_%` values around `0.65`, variance in that column became limited, which is why `Discount_%` was excluded from the numerical correlation matrix.
+- **Missing Cost & Customer Metadata:** Detailed unit cost and unique customer IDs are not explicitly separated in the dataset, so profit and segment behavior are evaluated from the available transaction fields.
+- **Multi-Year Aggregation:** Grouping by calendar month across multi-year entries blends seasonal patterns across years and should be interpreted alongside year-over-year context.
+
+---
+
 ## Project Structure
 
 ```text
